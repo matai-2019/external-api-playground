@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
+import { getSlack } from '../api'
 
 export default class App extends Component {
   state = {
     people: [1, 2]
   }
-
   componentDidMount () {
     // make api call
+    getSlack(this.setPeople)
   }
+
+  setPeople = (err, people) => {
+    if (err) {
+      console.log(err)
+    } else {
+      this.setState({
+        people: people
+      })
+    }
+  }
+
   render () {
     return (
       <>
