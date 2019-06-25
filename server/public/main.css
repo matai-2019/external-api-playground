@@ -1,0 +1,26 @@
+.people-list{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center
+
+}
+
+.person{
+  margin: 50px
+}
+.display-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+
+.profile-pic{
+  z-index: 10;
+}
+
+.robot{
+  z-index: 100;
+}
