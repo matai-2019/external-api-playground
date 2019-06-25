@@ -1,6 +1,6 @@
 # Choose your own API adventure
 
-This uses [`boilerplate-react-webpack`](https://github.com/dev-academy-challenges/boilerplate-react-webpack) as a template
+_This uses [`boilerplate-react-webpack`](https://github.com/dev-academy-challenges/boilerplate-react-webpack) as a template._
 
 Select from one of the links below (or find your own public API) and build up some React components around one or more of them.
  * http://wheretheiss.at/w/developer: get the lat/lon of the ISS
