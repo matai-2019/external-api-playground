@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { getTrivia } from '../api'
+// const api = require('../api')
 
 class Trivia extends React.Component {
   state = {
