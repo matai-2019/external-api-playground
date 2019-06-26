@@ -18,14 +18,19 @@ class App extends React.Component {
   }
 
   mathFact () {
-    console.log('MATHFACT')
     this.setState(
       { type: 'math' }
     )
+    getNumberFact(this.state.number, this.state.type)
+      .then(fact => {
+        this.setState(
+          { fact }
+        )
+      })
   }
 
   componentDidMount () {
-    getNumberFact(this.state.number, this.state.fact)
+    getNumberFact(this.state.number, this.state.type)
       .then(fact => {
         this.setState(
           { fact }
@@ -38,7 +43,7 @@ class App extends React.Component {
       <React.Fragment>
         <h1>Number Facts</h1>
         <div className='Number' > {this.state.number} </div>
-        <button onClick = {this.mathFact} >Math</button>
+        <button onClick={this.mathFact} >Math</button>
         {this.state.type && (<h2>{this.state.type}</h2>)}
         {this.state.fact && (<p>{this.state.fact}</p>)}
       </React.Fragment>
