@@ -1,17 +1,23 @@
-const getAuth = require('../auth')
+const fs = require('fs')
 const request = require('superagent')
 const express = require('express')
 const router = express.Router()
 const idUrl = 'https://www.slack.com/api/channels.info?channel=CJX8XUQLE'
 const usersUrl = 'https://slack.com/api/users.list?team=T02SQPVAC'
-const auth = 'xoxp-2908811352-589200241107-678188561735-d03d48af9d7f5631aa757065222759da'
+const auth = 'xoxp-2908811352-589200241107-670392999473-621348811b77f4d77e03fb0977432ef0'
 let matai = []
 let all = []
 
-console.log('auth: ', getAuth)
+require.extensions['.txt'] = function (module, filename) {
+  module.exports = fs.readFileSync(filename, 'utf8');
+};
+
+const token = require('../../auth.txt').slice(1)
+
+console.log('auth: ', token)
 
 router.get('/', (req, res) => {
-  console.log('slack home hit', { token: auth })
+  console.log('slack home hit |', auth)
   request
     .get(idUrl)
     .set({

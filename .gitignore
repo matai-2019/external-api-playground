@@ -67,4 +67,4 @@ bundle.*
 dev.sqlite3
 
 # api key
-auth.js
+auth.txt

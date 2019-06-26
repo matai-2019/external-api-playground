@@ -8,7 +8,7 @@ export default class App extends Component {
     people: ['you mean nothing'],
     test: ''
   }
-  componentDidMount () {
+  componentDidMount() {
     getPeople(this.setPeople)
   }
 
@@ -22,7 +22,7 @@ export default class App extends Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <>
         <h1 style={{ textAlign: 'center' }}>DEVELOCONS</h1>
@@ -31,9 +31,9 @@ export default class App extends Component {
             this.state.people.map(person => {
               return <div key={person} className="person">
 
-                <div style={{ position: 'relative' }}>
-                  <img src={'https://robohash.org/' + person} className={{ 'display-img': true, 'robot': true }} alt=""/>
-                  <h3 style={{ textAlign: 'center' }}>{person}</h3>
+                <div style={{ position: 'relative', height: '400px', width: '400px'}}>
+                  <img src={'https://robohash.org/' + person} className={'display-img'} alt="" />
+                  <h3 style={{ textAlign: 'center' }} className='name'>{person}</h3>
                 </div>
               </div>
             })

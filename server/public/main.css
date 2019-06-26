@@ -1,26 +1,54 @@
+body {
+  font-family: 'DM Serif Display', serif;
+  font-size: 50px;
+  color: rgb(35, 35, 45);
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(200, 200, 200);
+}
+
 .people-list{
   display: flex;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center
-
 }
 
 .person{
-  margin: 50px
+  font-size: 30px;
+  margin: 20px;
+  height: 400px;
+  width: 400px;
+
+  background-color: white;
+  box-shadow: 0px 2px 12px 8px rgba(0, 0, 0, 0.1)
 }
 .display-img{
   position: absolute;
-  top: 0;
-  left: 0;
-  
+  top: 15px;
+  left: 50px;
+  box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.3) 
 }
 
-.profile-pic{
-  z-index: 10;
-}
-
-.robot{
+.robot {
   z-index: 100;
+}
+
+.name {
+  position: absolute;
+  line-height: 85px;
+  margin: 0px;
+  bottom: 0px;
+  width: 400px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 30px;
+  margin-bottom: 120px;
+  height: 180px;
+  line-height: 180px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  background-color: white;
 }
