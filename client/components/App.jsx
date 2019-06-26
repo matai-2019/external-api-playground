@@ -14,6 +14,7 @@ class App extends React.Component {
     this.triviaFact = this.triviaFact.bind(this)
     this.dateFact = this.dateFact.bind(this)
     this.yearFact = this.yearFact.bind(this)
+    this.capitalize = this.capitalize.bind(this)
   }
 
   getFact (num, type) {
@@ -57,6 +58,10 @@ class App extends React.Component {
     this.getFact(this.state.number, this.state.type)
   }
 
+  capitalize (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   componentDidMount () {
     this.getFact(this.state.number, this.state.type)
   }
@@ -71,7 +76,7 @@ class App extends React.Component {
         <button onClick={this.dateFact} >Date</button>
         <button onClick={this.yearFact} >Year</button>
 
-        {this.state.type && (<h2>{this.state.type}</h2>)}
+        {this.state.type && (<h2>{this.capitalize(this.state.type)}</h2>)}
         {this.state.fact && (<p>{this.state.fact}</p>)}
       </React.Fragment>
     )
