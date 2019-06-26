@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { getPeople } from '../api'
 
-const peopleList = [{ name: 'anisha' }, { name: 'tam' }, { name: 'taine' }, { name: 'rahul' }, { name: 'raaya' }, { name: 'ash' }, { name: 'celia' }, { name: 'andre' }, { name: 'noel' }, { name: 'bryce' }]
+// const peopleList = [{ name: 'anisha' }, { name: 'tam' }, { name: 'taine' }, { name: 'rahul' }, { name: 'raaya' }, { name: 'ash' }, { name: 'celia' }, { name: 'andre' }, { name: 'noel' }, { name: 'bryce' }]
 
 export default class App extends Component {
   state = {
-    people: peopleList,
+    people: ['you mean nothing'],
     test: ''
   }
   componentDidMount () {
@@ -17,7 +17,7 @@ export default class App extends Component {
       console.log(err)
     } else {
       this.setState({
-        test: people
+        people: people
       })
     }
   }
@@ -32,8 +32,8 @@ export default class App extends Component {
               return <div key={person} className="person">
 
                 <div style={{ position: 'relative' }}>
-                  <img src={'https://robohash.org/' + person.name} className={{ 'display-img': true, 'robot': true }} alt=""/>
-                  <h3 style={{ textAlign: 'center' }}>{person.name}</h3>
+                  <img src={'https://robohash.org/' + person} className={{ 'display-img': true, 'robot': true }} alt=""/>
+                  <h3 style={{ textAlign: 'center' }}>{person}</h3>
                 </div>
               </div>
             })
