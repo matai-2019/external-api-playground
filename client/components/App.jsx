@@ -13,6 +13,15 @@ class App extends React.Component {
     this.mathFact = this.mathFact.bind(this)
   }
 
+  getFact (num, type) {
+    getNumberFact(num, type)
+      .then(fact => {
+        this.setState(
+          { fact }
+        )
+      })
+  }
+
   randomNumber (num) {
     return Math.floor(Math.random() * num)
   }
@@ -21,21 +30,11 @@ class App extends React.Component {
     this.setState(
       { type: 'math' }
     )
-    getNumberFact(this.state.number, this.state.type)
-      .then(fact => {
-        this.setState(
-          { fact }
-        )
-      })
+    this.getFact(this.state.number, this.state.type)
   }
 
   componentDidMount () {
-    getNumberFact(this.state.number, this.state.type)
-      .then(fact => {
-        this.setState(
-          { fact }
-        )
-      })
+    this.getFact(this.state.number, this.state.type)
   }
 
   render () {
