@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import { getSlack } from '../api'
+import { getPeople } from '../api'
+
+const peopleList = [{ name: 'anisha' }, { name: 'tam' }, { name: 'taine' }, { name: 'rahul' }, { name: 'raaya' }, { name: 'ash' }, { name: 'celia' }, { name: 'andre' }, { name: 'noel' }, { name: 'bryce' }]
 
 export default class App extends Component {
   state = {
-    people: [1, 2]
+    people: peopleList,
+    test: ''
   }
   componentDidMount () {
-    // make api call
-    getSlack(this.setPeople)
+    getPeople(this.setPeople)
   }
 
   setPeople = (err, people) => {
@@ -15,7 +17,7 @@ export default class App extends Component {
       console.log(err)
     } else {
       this.setState({
-        people: people
+        test: people
       })
     }
   }
@@ -28,12 +30,11 @@ export default class App extends Component {
           {
             this.state.people.map(person => {
               return <div key={person} className="person">
-                <h3>{person.name}</h3>
+
                 <div style={{ position: 'relative' }}>
-                  <img src={person.img} className={{ 'display-img': true, 'img': true }} alt=""/>
-                  <img src={person.robot} className={{ 'display-img': true, 'robot': true }} alt=""/>
+                  <img src={'https://robohash.org/' + person.name} className={{ 'display-img': true, 'robot': true }} alt=""/>
+                  <h3 style={{ textAlign: 'center' }}>{person.name}</h3>
                 </div>
-                <h2>hello</h2>
               </div>
             })
           }
