@@ -1,9 +1,11 @@
 import React from 'react'
 import { getSpecies } from '../api'
+import { Link } from "react-router-dom"
 
 class App extends React.Component {
   state = {
     species: [],
+    speciesList: null
     //randomSpecies: null
   }
 
@@ -24,11 +26,22 @@ class App extends React.Component {
   }
 
   render() {
+
+    const race = this.state.species
+
+
+
     return (
+
+
       <React.Fragment>
         <h1>Star Trek API</h1>
         <button onClick={this.handleClick}>Display All Species</button>
-        {<p>{this.state.species.name}</p>}
+        <ul>
+        {race.map(e => {
+          return <li key={e.uid}><p>{e.name}</p></li>
+        })}
+        </ul>
       </React.Fragment>
     )
   }

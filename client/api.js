@@ -5,7 +5,7 @@ const stapiURL = 'http://stapi.co/api/v1/rest/species/search'
 export function getSpecies () {
   return request.get(stapiURL)
     .then(res => {
-      console.log(res.body.species)
+      // console.log(res.body.species)
       return res.body.species
     })
 }
