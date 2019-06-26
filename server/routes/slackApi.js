@@ -1,14 +1,24 @@
-import { key } from '../../apikey'
-import request from 'superagent'
+const key = require('../../apikey').key
+const request = require('superagent')
 const express = require('express')
 const router = express.Router()
 
-const slackUrl = 'https://slack.com/' + key
+const urlChannel = 'https://slack.com/api/channels.list'
+const urlAllUsers = 'https://slack.com/api/users.list'
 
-router.get('/', (req, res) => {
+const test = {
+  hi: 'hi'
+}
+
+router.get('/channels', (req, res) => {
   // get api
   request
-    .get(slackUrl)
+    .post(urlChannel)
+    .set({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + key
+    })
+    .send()
     .end((data) => {
       res.send(data)
     })

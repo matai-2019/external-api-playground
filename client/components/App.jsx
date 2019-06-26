@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getSlack } from '../api'
+import { key } from '../../apikey'
 
 export default class App extends Component {
   state = {
