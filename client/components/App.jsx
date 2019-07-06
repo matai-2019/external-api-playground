@@ -1,13 +1,13 @@
 import React from 'react'
-// import api from '../api'
 import { getCharacters, getCharDetails } from '../api'
-// import Character from './Character'
+import Character from './Character'
 
 class App extends React.Component {
 
   state = {
     characters: [],
-    details: []
+    details: [],
+    isVisible: true
   }
 
   handleClick = () => {
@@ -19,36 +19,35 @@ class App extends React.Component {
       })
   }
 
-  displayCharDetails = () => {
-    for (let i = 0; i < this.state.characters.length; i++) {
-      return getCharDetails(i.id)
-        .then(details => {
-          this.setState({
-            details: details
-          })
-        })
-    }
+  handleClick2 = () => {
+    this.setState({
+      isVisible: true
+    })
   }
 
-  render() {
+  render () {
     const hpPeople = this.state.characters
+    const prop = this.state.details
     return (
       <>
         <h1>Harry Potter API Practice</h1>
         <button onClick={this.handleClick}>Load all HP characters!</button>
-        <ul>
+        {this.state.isVisible && <ul>
           {hpPeople.map(e => {
-            return <li key={e._id}><button onClick={this.displayCharDetails}>{e.name}</button></li>
+            return <li key={e._id}><button onClick={() => {
+              return getCharDetails(e._id)
+                .then(details => {
+                  this.setState({
+                    details: details,
+                    isVisible: false
+                  })
+                })
+            }
+            }>{e.name}</button></li>
           })}
-        </ul>
-        <ul>
-          <li>{this.state.details.name}</li>
-          <li>{this.state.details.house}</li>
-          <li>{this.state.details.school}</li>
-          <li>{this.state.details.species}</li>
-          <li>{this.state.details.bloodStatus}</li>
-          <li>{this.state.details.role}</li>
-        </ul>
+        </ul>}
+        {!this.state.isVisible && <Character name={prop.name} house={prop.house} bloodStatus={prop.bloodStatus} role={prop.role} species={prop.species} school={prop.school}/>}
+        <button onClick={this.handleClick2}>Choose Another Character</button>
       </>
     )
   }

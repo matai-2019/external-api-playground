@@ -1,16 +1,18 @@
 import React from 'react'
 
-class Character extends React.Component {
-
-  // state = {
-  //   data: data
-  // }
-
-  render () {
-    return (
-      <p>hello</p>
-    )
-  }
+const Character = (props) => {
+  return (
+    <>
+      <p>{props.name}</p>
+      <ul>
+        <li>{props.house}</li>
+        <li>{props.school}</li>
+        <li>{props.species}</li>
+        <li>{props.bloodStatus}</li>
+        <li>{props.role}</li>
+      </ul>
+    </>
+  )
 }
 
 export default Character
