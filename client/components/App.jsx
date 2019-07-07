@@ -1,13 +1,15 @@
 import React from 'react'
 import { getCharacters, getCharDetails } from '../api'
 import Character from './Character'
+import Houses from './Houses'
 
 class App extends React.Component {
 
   state = {
     characters: [],
     details: [],
-    isVisible: true
+    isVisible: true,
+    houses: []
   }
 
   handleClick = () => {
@@ -27,7 +29,7 @@ class App extends React.Component {
 
   render () {
     const hpPeople = this.state.characters
-    const prop = this.state.details
+    const details = this.state.details
     return (
       <>
         <h1>Harry Potter API Practice</h1>
@@ -46,8 +48,9 @@ class App extends React.Component {
             }>{e.name}</button></li>
           })}
         </ul>}
-        {!this.state.isVisible && <Character name={prop.name} house={prop.house} bloodStatus={prop.bloodStatus} role={prop.role} species={prop.species} school={prop.school}/>}
+        {!this.state.isVisible && <Character name={details.name} house={details.house} bloodStatus={details.bloodStatus} role={details.role} species={details.species} school={details.school}/>}
         <button onClick={this.handleClick2}>Choose Another Character</button>
+        <Houses />
       </>
     )
   }
