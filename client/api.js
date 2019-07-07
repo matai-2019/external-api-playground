@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import request from 'superagent'
 const hpUrl = 'https://www.potterapi.com/v1/characters?key=$2a$10$ZbeMuQMa5WtxQ4XOtqwywOFe.nwFFXu27Z3egbPP5gz59aIuvIWAS'
 
