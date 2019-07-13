@@ -1,18 +1,34 @@
 import React from 'react'
+import MoonFacts from './MoonFacts'
 
 import { getAstro } from '../api'
 
 class Facts extends React.Component {
+  state = {
+    astro: {}
+  }
 
   componentDidMount() {
     getAstro()
-    .then( res => console.log(res))
+    .then( astro => this.setState({astro}))
   }
 
   render() {
+    const astro = this.state.astro
+    const moonFacts = {
+      moon_altitude: astro.moon_altitude,
+      moon_azimuth: astro.moon_azimuth,
+      moon_distance: astro.moon_distance,
+      moon_parallactic_angle: astro.moon_parallactic_angle,
+      moonrise: astro.moonrise,
+      moonset: astro.moonset
+    }
+    console.log(astro)
     return (
       <>
       <h2>Facts</h2>
+      <p>Date: {astro.date}</p>
+      <MoonFacts moonFacts={moonFacts}/>
       </>
     )
   }
