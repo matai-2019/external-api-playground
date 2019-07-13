@@ -1,8 +1,13 @@
 import React from 'react'
+import NavBar from './NavBar'
+import Facts from './Facts'
 
-const App = () => {
+const App = () =>{
   return (
-    <h1>React development has begun!</h1>
+    <>
+    <NavBar />
+    <Facts />
+    </>
   )
 }
 
