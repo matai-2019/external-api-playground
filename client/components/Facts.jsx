@@ -2,6 +2,7 @@ import React from 'react'
 import MoonFacts from './MoonFacts'
 
 import { getAstro } from '../api'
+import { Grid } from 'semantic-ui-react';
 
 class Facts extends React.Component {
   state = {
@@ -28,7 +29,16 @@ class Facts extends React.Component {
       <>
       <h2>Facts</h2>
       <p>Date: {astro.date}</p>
-      <MoonFacts moonFacts={moonFacts}/>
+      <Grid stackable>
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <MoonFacts moonFacts={moonFacts}/>
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <MoonFacts moonFacts={moonFacts}/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
       </>
     )
   }
