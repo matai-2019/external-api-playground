@@ -10,11 +10,11 @@ const astroUrl = 'https://api.ipgeolocation.io/astronomy'
 
 router.get('/', (req, res) => {
   const url = `${astroUrl}?apiKey=${astroApiKey}`
-
+  
   request.get(url)
     .then(
       astroData => {
-        res.send(astroData.text)
+        res.send(astroData.body)
       }
     )
     .catch(err => {
