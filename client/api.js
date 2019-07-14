@@ -2,7 +2,7 @@ const request = require('superagent')
 
 const astro = 'http://localhost:3000/astro/'
 
-getAstro = () => { 
+const getAstro = () => { 
   return request.get(astro)
     .then(res => {
       return res.body
