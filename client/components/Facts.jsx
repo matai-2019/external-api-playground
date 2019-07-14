@@ -42,6 +42,7 @@ class Facts extends React.Component {
   }
 
   render() {
+    const location = this.state.location.district
     const date = this.state.date
     const moonFacts = this.state.moonFacts
     const sunFacts = this.state.sunFacts
@@ -52,10 +53,10 @@ class Facts extends React.Component {
       <Grid stackable>
         <Grid.Row>
           <Grid.Column width={8}>
-            <MoonFacts moonFacts={moonFacts}/>
+            <MoonFacts moonFacts={moonFacts} location={location}/>
           </Grid.Column>
           <Grid.Column width={8}>
-            <SunFacts sunFacts={sunFacts}/>
+            <SunFacts sunFacts={sunFacts} location={location}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
