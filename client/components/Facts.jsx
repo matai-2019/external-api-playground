@@ -33,7 +33,6 @@ class Facts extends React.Component {
       sunrise: astro.sunrise,
       sunset: astro.sunset
     }
-    console.log(astro)
     return (
       <>
       <h2>Facts</h2>
