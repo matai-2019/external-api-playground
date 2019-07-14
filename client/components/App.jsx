@@ -5,10 +5,12 @@ import { Container } from 'semantic-ui-react';
 
 const App = () =>{
   return (
+    <>
     <Container>
       <NavBar />
       <Facts />
     </Container>
+    </>
   )
 }
 
