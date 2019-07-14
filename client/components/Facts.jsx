@@ -7,36 +7,48 @@ import { Grid } from 'semantic-ui-react';
 
 class Facts extends React.Component {
   state = {
-    astro: {}
+    date: '',
+    dayLength: '',
+    location: {},
+    moonFacts: {},
+    sunFacts: {}
   }
 
   componentDidMount() {
     getAstro()
-    .then( astro => this.setState({astro}))
+    .then( astro => {
+      this.setState({
+        date: astro.date,
+        dayLength: astro.day_length,
+        location: astro.location,
+        moonFacts: {
+          moon_altitude: astro.moon_altitude,
+          moon_azimuth: astro.moon_azimuth,
+          moon_distance: Math.floor(astro.moon_distance),
+          moon_parallactic_angle: astro.moon_parallactic_angle,
+          moonrise: astro.moonrise,
+          moonset: astro.moonset
+        },
+        sunFacts:{
+          solar_noon: astro.solar_noon,
+          sun_altitude: astro.sun_altitude,
+          sun_azimuth: astro.sun_azimuth,
+          sun_distance: Math.floor(astro.sun_distance),
+          sunrise: astro.sunrise,
+          sunset: astro.sunset
+        }
+      })
+    })
   }
 
   render() {
-    const astro = this.state.astro
-    const moonFacts = {
-      moon_altitude: astro.moon_altitude,
-      moon_azimuth: astro.moon_azimuth,
-      moon_distance: astro.moon_distance,
-      moon_parallactic_angle: astro.moon_parallactic_angle,
-      moonrise: astro.moonrise,
-      moonset: astro.moonset
-    }
-    const sunFacts = {
-      solar_noon: astro.solar_noon,
-      sun_altitude: astro.sun_altitude,
-      sun_azimuth: astro.sun_azimuth,
-      sun_distance: astro.sun_distance,
-      sunrise: astro.sunrise,
-      sunset: astro.sunset
-    }
+    const date = this.state.date
+    const moonFacts = this.state.moonFacts
+    const sunFacts = this.state.sunFacts
     return (
       <>
       <h2>Facts</h2>
-      <p>Date: {astro.date}</p>
+      <p>Date: {date}</p>
       <Grid stackable>
         <Grid.Row>
           <Grid.Column width={8}>

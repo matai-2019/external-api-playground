@@ -5,7 +5,7 @@ const MoonFacts = ({moonFacts}) => {
   const items = [
     {key: 'rise', label: 'rise', value: moonFacts.moonrise},
     {key: 'set', label: 'set', value: moonFacts.moonset},
-    {key: 'distance', label: 'distance (km)', value: Math.floor(moonFacts.moon_distance)}
+    {key: 'distance', label: 'distance (km)', value: moonFacts.moon_distance}
   ]
 return (
   <Card fluid>

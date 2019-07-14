@@ -5,7 +5,7 @@ const SunFacts = ({sunFacts}) => {
   const items = [
     {key: 'rise', label: 'rise', value: sunFacts.sunrise},
     {key: 'set', label: 'set', value: sunFacts.sunset},
-    {key: 'distance', label: 'distance (km)', value: Math.floor(sunFacts.sun_distance)}
+    {key: 'distance', label: 'distance (km)', value: sunFacts.sun_distance}
   ]
 return (
   <Card fluid>
