@@ -1,5 +1,6 @@
 import React from 'react'
 import MoonFacts from './MoonFacts'
+import SunFacts from './SunFacts'
 
 import { getAstro } from '../api'
 import { Grid } from 'semantic-ui-react';
@@ -24,6 +25,14 @@ class Facts extends React.Component {
       moonrise: astro.moonrise,
       moonset: astro.moonset
     }
+    const sunFacts = {
+      solar_noon: astro.solar_noon,
+      sun_altitude: astro.sun_altitude,
+      sun_azimuth: astro.sun_azimuth,
+      sun_distance: astro.sun_distance,
+      sunrise: astro.sunrise,
+      sunset: astro.sunset
+    }
     console.log(astro)
     return (
       <>
@@ -35,7 +44,7 @@ class Facts extends React.Component {
             <MoonFacts moonFacts={moonFacts}/>
           </Grid.Column>
           <Grid.Column width={8}>
-            <MoonFacts moonFacts={moonFacts}/>
+            <SunFacts sunFacts={sunFacts}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
