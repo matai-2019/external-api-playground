@@ -1,38 +1,19 @@
 import React from 'react'
-import { getInsults } from '../api'
+import Trump from './TrumpApi'
+import TereoProverb from './ProverbsApi'
 
-class App extends React.Component {
-  state = {
-    insult: [],
-    printInsult: null
-  }
+const App = () => {
+  // state = {}
 
-  componentDidMount () {
-    getInsults()
-      .then(insult => {
-        this.setState({
-          insult: insult
-        })
-      })
-  }
-
-  handleClick = () => {
-    const printInsult = this.state.insult
-
-    this.setState({
-      printInsult
-    })
-  }
-  render () {
-    // const theInsult = this.state.insult
-
-    return (
-      <React.Fragment>
-        <h1>works</h1>
-        <button onClick={this.handleClick}>Load Insults</button>
-      </React.Fragment>
-    )
-  }
+  // render () {
+  return (
+    <React.Fragment>
+      <h1>So, lets load up some Trump tweets!</h1>
+      <Trump/>
+      <h1>Now, lets try some Te-Reo proverbs!</h1>
+      <TereoProverb/>
+    </React.Fragment>
+  )
 }
 
 export default App
