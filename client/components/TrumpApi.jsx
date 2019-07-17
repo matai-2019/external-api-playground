@@ -24,13 +24,8 @@ render () {
   return (
     <>
     <div>
-      <button onClick={this.handleSubmit}>Load up</button>
+      <button onClick={this.handleSubmit}>Load up</button> {this.state.quote}
     </div>
-  {this.state.quote && (
-    <div>
-      <p>{this.state.quote}</p>
-    </div>
-  )}
     </>
   )
 }
