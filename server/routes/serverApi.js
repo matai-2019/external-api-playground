@@ -20,7 +20,6 @@ router.get('/', (req, res) => {
       Authorization: 'Bearer ' + auth
     })
     .then(channelRes => {
-      console.log(channelRes.body)
       matai = channelRes.body.channel.members
       request
         .get(usersUrl)
