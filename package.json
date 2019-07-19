@@ -2,7 +2,7 @@
   "name": "boilerplate-react-webpack",
   "version": "0.2.2",
   "description": "A webpack React starter",
-  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
+  "repository": "https://github.com/metai/boilerplate-react-webpack.git",
   "main": "server/index.js",
   "author": "EDA",
   "license": "ISC",
