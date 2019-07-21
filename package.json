@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "superagent": "^5.0.2"
+    "lodash.random": "^3.2.0",
+    "superagent": "^5.0.2",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
